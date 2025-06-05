@@ -1,0 +1,48 @@
+✅ Question 1 : Qu’est-ce qu’un moteur BPM comme Camunda, et à quoi sert-il ?
+Un moteur BPM (Business Process Management) comme Camunda permet de :
+
+Modéliser des processus métiers sous forme de diagrammes visuels (BPMN)
+
+Orchestrer automatiquement les tâches (manuelles ou automatisées)
+
+Superviser l’état des processus en temps réel
+
+Gérer les erreurs, les rôles, et les versions
+
+👉 Camunda joue un rôle de chef d’orchestre, qui déclenche et supervise les différents services techniques (API, microservices…) selon une logique métier explicite.
+
+✅ Question 2 : Quelles sont les différences entre un moteur BPM et un moteur de workflow ?
+
+| Tâche BPMN            | Description                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------- |
+| **Tâche de service**  | Exécutée automatiquement par un système (ex : appel d’une API, traitement de données) |
+| **Tâche utilisateur** | Nécessite l’intervention humaine via une interface (ex : validation, saisie)          |
+
+✅ Question 3 : À quoi sert le “topic” dans une tâche de service externe ?
+Le topic dans une Service Task déclare le nom logique de la tâche que va écouter un worker externe.
+
+Le worker (ex : stock_worker.py) appelle l’API de Camunda pour verrouiller les tâches ayant ce topic
+
+Une fois exécutée, la tâche est marquée comme complétée
+
+👉 C’est ce mécanisme qui permet à Camunda de déléguer les actions à des scripts Python ou autres langages.
+
+✅ Question 4 : Comment Camunda interagit avec des services externes Python ?
+Grâce à l’API REST, le processus Camunda :
+
+Crée une tâche (avec topic)
+
+Le script Python la récupère via /external-task/fetchAndLock
+
+Exécute son code (ex : vérifie stock, envoie mail)
+
+Rappelle /external-task/{id}/complete pour signaler à Camunda que la tâche est finie
+
+✅ Question 5 : Que se passe-t-il si un worker n’est pas lancé ?
+Si un worker Python n’est pas lancé ou plante :
+
+Camunda garde la tâche dans sa file d’attente
+
+Le processus reste bloqué sur cette étape
+
+Il est possible de configurer des timeouts, retries ou des notifications d’échec

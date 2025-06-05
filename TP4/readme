@@ -1,0 +1,36 @@
+✅ Question 1 : Quelle est la différence entre monolithique et microservices ?
+
+| Architecture      | Description                                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Monolithique**  | Une seule application contenant toute la logique, souvent difficile à maintenir et à faire évoluer                         |
+| **Microservices** | Une architecture où chaque fonctionnalité est un service indépendant, léger, pouvant être déployé et mis à jour séparément |
+
+
+✅ Question 1 : Quelle est la différence entre monolithique et microservices ?
+Architecture	Description
+Monolithique	Une seule application contenant toute la logique, souvent difficile à maintenir et à faire évoluer
+Microservices	Une architecture où chaque fonctionnalité est un service indépendant, léger, pouvant être déployé et mis à jour séparément
+
+👉 Le TP4 montre comment isoler les services dans des conteneurs Docker pour faciliter le déploiement.
+
+✅ Question 2 : Pourquoi utilise-t-on Docker pour les microservices ?
+Docker permet :
+
+L’isolation de chaque service dans un conteneur
+
+Une portabilité totale : le service tourne partout où Docker est installé
+
+Une configuration standardisée (via Dockerfile)
+
+Une mise à l’échelle facile
+
+✅ Question 3 : Quel est le rôle de Docker Compose ?
+Docker Compose sert à :
+
+Définir plusieurs services dans un seul fichier YAML
+
+Lancer tous les services avec une seule commande
+
+Gérer les réseaux internes entre les conteneurs
+
+👉 Dans le TP4, on l’utilise pour lancer et connecter automatiquement deux microservices Flask.

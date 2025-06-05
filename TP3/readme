@@ -1,0 +1,38 @@
+✅ Question 1 : Qu’est-ce qu’un ESB (Enterprise Service Bus) ?
+Un ESB est un composant logiciel central qui :
+
+Connecte plusieurs services hétérogènes
+
+Facilite les communications entre eux
+
+Applique des règles de routage, de transformation ou de sécurité
+
+Réduit les dépendances directes entre services
+
+👉 Dans le TP3, nous avons implémenté un micro-ESB léger avec FastAPI, jouant le rôle de routeur intelligent entre plusieurs microservices.
+
+✅ Question 2 : Quelle est la différence entre un appel direct et un appel via un ESB ?
+
+| Type d’appel      | Description                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| **Appel direct**  | Un service client appelle chaque microservice par son adresse → forte dépendance     |
+| **Appel via ESB** | Le client appelle uniquement le **bus** (ESB), qui redirige ou transforme les appels |
+
+✅ Question 4 : Quels sont les avantages de cette architecture ?
+✅ Centralisation des appels
+
+✅ Isolation entre client et services réels
+
+✅ Facilité d’ajout/modification de services
+
+✅ Compatible avec des plugins de journalisation, sécurité, cache, etc.
+
+
+✅ Question 5 : Quelles sont les limites d’un micro-ESB développé à la main ?
+❌ Pas de gestion native de la tolérance aux pannes
+
+❌ Pas de file d’attente ou traitement asynchrone par défaut
+
+❌ Complexité si les services deviennent trop nombreux
+
+❌ Pas aussi riche que des outils comme Kong, NATS, RabbitMQ ou Kafka

@@ -8,6 +8,7 @@
 
 2. Comment pourriez-vous étendre cette application en une architecture 4-tiers ?
 Pour étendre cette application en une architecture 4-tiers, vous pourriez ajouter une couche intermédiaire entre la couche de présentation et la couche de logique métier. Cette couche intermédiaire pourrait être un service web ou une API REST qui gère les requêtes et les réponses entre le client (côté présentation) et le serveur (côté logique métier). Voici comment cela pourrait être structuré :
+
 | Couche                    | Rôle                                                               |
 | ------------------------- | ------------------------------------------------------------------ |
 | **Présentation (client)** | Affiche l’interface utilisateur, consomme une API via HTTP/JSON.   |
